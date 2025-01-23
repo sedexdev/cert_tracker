@@ -11,8 +11,6 @@ services:
     secrets:
       - postgres-pw
       - secret-key
-    volumes:
-      - image-uploads:/home/app/src/static/images/data
     environment:
       TESTING: "False"
       FLASK_ENV: development
@@ -23,7 +21,7 @@ services:
       API_VERSION: "1"
   db:
     image: postgres:16.4-bookworm
-    restart: always 
+    restart: always
     ports:
       - 5432:5432
     secrets:
@@ -48,4 +46,3 @@ secrets:
 
 volumes:
   postgres-data:
-  image-uploads:

@@ -48,7 +48,6 @@ COPY --from=node_builder --chown=app:app /home/app/src .
 # install pip dependencies
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-RUN pip install pip-audit && pip-audit
 
 # change to the app user
 USER app

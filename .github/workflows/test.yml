@@ -51,6 +51,8 @@ jobs:
           python-version: "3.12"
       - name: Install dependencies
         run: pip install -r src/requirements.txt
+      - name: Audit pip packages
+        run: pip install pip-audit && pip-audit
       - name: Create DB
         run: sqlite3 cert-tracker-db.db
       - name: Run app in background
