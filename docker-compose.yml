@@ -20,7 +20,7 @@ services:
       SECRET_KEY: /run/secrets/secret-key
       API_VERSION: "1"
   db:
-    image: postgres:16.4-bookworm
+    image: postgres:16.6-alpine
     restart: always
     ports:
       - 5432:5432
