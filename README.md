@@ -1,101 +1,170 @@
-# Cert Tracker
+# 📘 Cert Tracker
 
 [![Lint and Test](https://github.com/sedexdev/cert_tracker/actions/workflows/test.yml/badge.svg)](https://github.com/sedexdev/cert_tracker/actions/workflows/test.yml)
 
-# Overview
+Cert Tracker let's you track all aspects of your next IT certification study progression. I've found that having study resources scattered around on various platforms:
 
-Cert Tracker let's you track all aspects of your next IT certification study progression. I've found that having study resources scattered around on various platforms (YouTube/Reddit/Udemy/Medium/DevTo etc.) leads to either text documents full of links, or annoying spreadsheets, or collections of OneNote notebooks, and it all gets a bit messy.
+-   YouTube
+-   Reddit
+-   Udemy
+-   Medium
+-   DevTo etc.
 
-Wouldn't it be nice to have all your cert specific resources (courses/video content/articles/documentation) all in one place?
+leads to either text documents full of links, or annoying spreadsheets, or collections of OneNote notebooks.
 
-That's what this app is for. It is still in development so more features will be released in due time but currently the app allows you to:
+Wouldn't it be nice to have all your cert specific resources all in one place?
 
-- Work inside a local Docker container runtime environment with local PostgreSQL data storage
-- Upload course links
-- Add all course sections for tracking completion and flash card creation
-- Upload video/article/documentation links in well organised sections
-- Customise images for your resources
-- Import resources into other certs
-- Set exam dates
-- Switch between light and dark mode
+-   Courses
+-   Video content
+-   Articles
+-   Documentation
+
+That's what this app is for!
+
+## ✨ Features
+
+-   ✅ Self-hosted Docker container environment with local PostgreSQL data storage
+-   ✅ Upload course links
+-   ✅ Course section tracking
+-   ✅ Upload video/article/documentation resource links in well organised sections
+-   ✅ Customise images for your resources
+-   ✅ Import resources into other cert instances
+-   ✅ Switch between light and dark mode
 
 New features under development include:
 
-- Configurable email reminders running up to exam day
-- Plotly Dash graphical analysis dashboard to see your progress
-- Cost analysis to see your cert spending
-- In-app WYSIWYG text editor and file tree for managing notes
-- An area for storing links to your practice exams
-- Digital flash cards
+-   📌 Configurable email reminders running up to exam day
+-   📌 Plotly Dash graphical analysis dashboard to see your progress
+-   📌 Cost analysis to see your cert spending
+-   📌 In-app WYSIWYG text editor and file tree for managing notes
+-   📌 An area for storing links to your practice exams
+-   📌 Digital flash cards
 
-Fork the repo if you are interested in contributing to this project, new suggestions are very welcome as well as code contributions.
+## 📦 Installation
 
-# Prerequisites
+### Prerequisites
 
-- A system account with administrator privileges
-- <code>git</code> - https://github.com/git-guides/install-git
-- <code>docker</code> - https://docs.docker.com/engine/install/
-- <code>docker compose</code> - https://docs.docker.com/compose/install/
-- <code>wsl2</code> - https://learn.microsoft.com/en-us/windows/wsl/install (Windows only when using Docker Desktop)
+-   A system account with sudo / administrator privileges
+-   `Git` - https://github.com/git-guides/install-git
+-   `Docker` - https://docs.docker.com/engine/install/
+-   `Docker Compose` - https://docs.docker.com/compose/install/
+-   `wsl2` - https://learn.microsoft.com/en-us/windows/wsl/install (Windows only when using Docker Desktop)
 
-# Getting started 
+### Get the code
 
-Clone the repo on to your local machine into a directory of your choice:
+```bash
+# Clone the repository
+git clone https://github.com/sedexdev/cert_tracker.git
+cd cert_tracker
+```
 
-<code>git clone https://github.com/sedexdev/cert_tracker.git</code>
+## ⚙️ Configuration
 
-**Run the following commands in the project root** - <code>cert_tracker</code>
+Update the 2 .txt files under `cert_tracker/secrets` for the PostgreSQL database password and the Flask app secret:
 
-## Running app containers
+-   `cert_tracker/secrets/postgres-pw.txt`
+-   `cert_tracker/secrets/secret.txt`
 
-- Mac/Linux: <code>sudo docker compose up -d</code></br>
-- Windows: <code>docker compose up -d</code> (from admin prompt)
+**NOTE**: You should follow best practice and _make these secrets complex_, and avoid exposing them in public places.
+
+## 🛠️ Usage
+
+Run the following commands in the project root - `cert_tracker/`
+
+### Running app containers
+
+-   Mac/Linux: `sudo docker compose up -d`
+-   Windows: `docker compose up -d` (from admin prompt)
 
 In your browser navigate to http://127.0.0.1:8181 to view the application once built.
 
-## Stopping app containers
+### Stopping app containers
 
-- Mac/Linux: <code>sudo docker compose stop</code></br>
-- Windows: <code>docker compose stop</code> (from admin prompt)
+-   Mac/Linux: `sudo docker compose stop`
+-   Windows: `docker compose stop` (from admin prompt)
 
-## Teardown
+### Teardown
 
 If you want to destroy the local images run:
 
-- Mac/Linux: <code>sudo docker compose down --rmi local</code></br>
-- Windows: <code>docker compose down --rmi local</code> (from admin prompt)
+-   Mac/Linux: `sudo docker compose down --rmi local`
+-   Windows: `docker compose down --rmi local` (from admin prompt)
 
 If you also want to destroy the PostgreSQL database run:
 
-- Mac/Linux: <code>sudo docker compose down --rmi local -v</code></br>
-- Windows: <code>docker compose down --rmi local -v</code> (from admin prompt)
+-   Mac/Linux: `sudo docker compose down --rmi local -v`
+-   Windows: `docker compose down --rmi local -v` (from admin prompt)
 
-# Setup
+### Open Graph Protocol
 
-## Secrets
+Where possible the application will query the URL used to create a `resource` and try to pull Open Graph data from the URL using the Python package `opengraph_py3`. When a site has metadata available through the protocol, form fields will auto-populate with images and other available information.
 
-Update the 2 .txt files under <code>cert_tracker/secrets</code> for the PostgreSQL database password and the Flask app secret:
+## 📂 Project Structure
 
-- <code>cert_tracker/secrets/postgres-pw.txt</code>
-- <code>cert_tracker/secrets/secret.txt</code>
+```
+cert_tracker/
+│
+├── .github/              # GitHub workflows and issue templates
+├── email/                # Email reminders working directory
+├── secrets/              # Local secret
+├── src/                  # Source
+├── tests/                # Unit and integration tests
+├── .gitignore            # Git ignore
+├── .pylintrc             # Pylint configuration
+├── LICENSE               # MIT license
+├── README.md             # This README.md file
+└── docker-compose.yml    # Local container orchestration config
+```
 
-**NOTE**: Despite this app runnging locally you should follow best practice and make these secrets complex, and avoid exposing them in public places.
+## 🧪 Running Tests
 
-# Open Graph Protocol
+Create a `.env` file in the root of the project and add the following variables:
 
-Where possible the application will query the URL used to create a <code>resource</code> and try to pull Open Graph data from the URL using the Python package <code>opengraph_py3</code>. When a site has metadata available through the protocol, form fields will auto-populate with images and other available information.
+```bash
+FLASK_ENV=development
+FLASK_APP=src
+FLASK_DEBUG=True
+SECRET_KEY="YOUR_SECRET_KEY"
+DATABASE_URL="sqlite:///cert-tracker-db"
+API_VERSION="1"
+TESTING=True
+```
 
-# Email reminder configuration
+Then create a new environment and install the dependencies
 
-**In Progress**
+```bash
+# use your preferred virtual environment - I'm using virtualenv
+virtualenv venv
+source venv/bin/activate
+pip3 install -r src/requirements.txt
+pytest -s tests/
+```
 
-# Change log
+## 🙌 Contributing
 
+<<<<<<< HEAD
 24/01/2025 - Update postgresql:16.4-bookworm -> postgres:16.6-alpine [ac8f4ce](https://github.com/sedexdev/cert_tracker/commit/ac8f4ce19ccc9c220010183b0c922a98b26b33fd)</br>
 08/01/2025 - Uploaded v1.1.0 - Image file uploads [5db06a0](https://github.com/sedexdev/cert_tracker/commit/396b4aa80e8df66e1919d6c81675f06155db06a0)</br>
 17/12/2024 - BUG FIX - MODULE_NOT_FOUND error during <code>npm</code> setup in <code>Dockerfile</code> [d657a0c](https://github.com/sedexdev/cert_tracker/commit/d657a0ce10e4e38b8623ef92b95b3df77a1ba2da)</br>
 13/12/2024 - Uploaded v1.0.0
+=======
+Contributions are welcome! Please follow the [contributing guidelines](https://github.com/sedexdev/cert_tracker/blob/main/CONTRIBUTING.md) and check for open [issues](https://github.com/sedexdev/cert_tracker/issues).
+>>>>>>> 50b5a19 (update: application documentation)
 
-# License
+## 🐛 Reporting Issues
 
-[M.I.T](https://github.com/sedexdev/cert_tracker/blob/main/LICENSE)
+Found a bug or need a feature? Open an issue [here](https://github.com/sedexdev/cert_tracker/issues).
+
+## 🧑‍💻 Authors
+
+-   **Andrew Macmillan** – [@sedexdev](https://github.com/sedexdev)
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/sedexdev/cert_tracker/blob/main/LICENSE) file for details.
+
+## 📋 Change log
+
+-   08/01/2025 - Uploaded v1.1.0 - Image file uploads [5db06a0](https://github.com/sedexdev/cert_tracker/commit/396b4aa80e8df66e1919d6c81675f06155db06a0)
+-   17/12/2024 - BUG FIX - MODULE_NOT_FOUND error during `npm` setup in `Dockerfile` [d657a0c](https://github.com/sedexdev/cert_tracker/commit/d657a0ce10e4e38b8623ef92b95b3df77a1ba2da)
+-   13/12/2024 - Uploaded v1.0.0
