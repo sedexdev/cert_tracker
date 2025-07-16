@@ -142,14 +142,7 @@ pytest -s tests/
 
 ## 🙌 Contributing
 
-<<<<<<< HEAD
-24/01/2025 - Update postgresql:16.4-bookworm -> postgres:16.6-alpine [ac8f4ce](https://github.com/sedexdev/cert_tracker/commit/ac8f4ce19ccc9c220010183b0c922a98b26b33fd)</br>
-08/01/2025 - Uploaded v1.1.0 - Image file uploads [5db06a0](https://github.com/sedexdev/cert_tracker/commit/396b4aa80e8df66e1919d6c81675f06155db06a0)</br>
-17/12/2024 - BUG FIX - MODULE_NOT_FOUND error during <code>npm</code> setup in <code>Dockerfile</code> [d657a0c](https://github.com/sedexdev/cert_tracker/commit/d657a0ce10e4e38b8623ef92b95b3df77a1ba2da)</br>
-13/12/2024 - Uploaded v1.0.0
-=======
 Contributions are welcome! Please follow the [contributing guidelines](https://github.com/sedexdev/cert_tracker/blob/main/CONTRIBUTING.md) and check for open [issues](https://github.com/sedexdev/cert_tracker/issues).
->>>>>>> 50b5a19 (update: application documentation)
 
 ## 🐛 Reporting Issues
 
