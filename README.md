@@ -73,27 +73,27 @@ Run the following commands in the project root - `cert_tracker/`
 
 ### Running app containers
 
-- Mac/Linux: `sudo docker compose up -d`
-- Windows: `docker compose up -d` (from admin prompt)
+- `sudo docker compose up -d` - Mac/Linux
+- `docker compose up -d` - Windows (from admin prompt)
 
 In your browser navigate to http://127.0.0.1:8181 to view the application once built.
 
 ### Stopping app containers
 
-- Mac/Linux: `sudo docker compose stop`
-- Windows: `docker compose stop` (from admin prompt)
+- `sudo docker compose stop` - Mac/Linux
+- `docker compose stop` - Windows (from admin prompt)
 
 ### Teardown
 
 If you want to destroy the local images run:
 
-- Mac/Linux: `sudo docker compose down --rmi local`
-- Windows: `docker compose down --rmi local` (from admin prompt)
+- `sudo docker compose down --rmi local` - Mac/Linux
+- `docker compose down --rmi local` - Windows (from admin prompt)
 
 If you also want to destroy the PostgreSQL database run:
 
-- Mac/Linux: `sudo docker compose down --rmi local -v`
-- Windows: `docker compose down --rmi local -v` (from admin prompt)
+- `sudo docker compose down --rmi local -v` - Mac/Linux
+- `docker compose down --rmi local -v` - Windows (from admin prompt)
 
 ### Open Graph Protocol
 
