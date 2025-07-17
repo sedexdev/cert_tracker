@@ -26,7 +26,7 @@ content_bp = Blueprint(
     template_folder="templates"
 )
 
-API_URL = f"http://127.0.0.1:5000/api/v{os.environ["API_VERSION"]}"
+API_URL = f"http://127.0.0.1:5000/api/v{os.environ['API_VERSION']}"
 
 
 ###########################
@@ -87,7 +87,7 @@ def create_cert() -> Response:
         )
         data = response.json()
         if data["status"] == 200:
-            flash(f"{data["message"]}", "message")
+            flash(f"{data['message']}", "message")
             return redirect(url_for("certs.certs"), 302)
         flash("Create cert failed", "error")
         return render_template("new_cert.html", form=form, title="CT: Create")
@@ -137,9 +137,9 @@ def update_cert(cert_id: int) -> Response:
         )
         data = response.json()
         if data["status"] == 200:
-            flash(f"{data["message"]}", "message")
+            flash(f"{data['message']}", "message")
         else:
-            flash(f"{data["message"]}", "error")
+            flash(f"{data['message']}", "error")
         return redirect(url_for("certs.certs"), 302)
     if form.head_img.errors or form.badge_img.errors:
         flash("Image uploads only (jpg, jpeg, png, svg)", "error")
@@ -174,7 +174,7 @@ def update_cert_exam_date() -> Response:
     )
     data = response.json()
     if data["status"] == 200:
-        flash(f"{data["message"]}", "message")
+        flash(f"{data['message']}", "message")
     else:
         flash("Failed to update cert", "error")
     return redirect(url_for('data.cert_data', cert_id=cert_id), 302)
@@ -304,7 +304,7 @@ def create_resource() -> None:
         )
         data = response.json()
         if data["status"] == 200:
-            flash(f"{data["message"]}", "message")
+            flash(f"{data['message']}", "message")
         else:
             flash("Create resource failed", "error")
         return redirect(url_for('data.cert_data', cert_id=cert_id), 302)
@@ -402,9 +402,9 @@ def update_resource(resource_id: int) -> Response:
         )
         data = response.json()
         if data["status"] == 200:
-            flash(f"{data["message"]}", "message")
+            flash(f"{data['message']}", "message")
         else:
-            flash(f"{data["message"]}", "error")
+            flash(f"{data['message']}", "error")
         return redirect(url_for("data.cert_data", cert_id=db_data["cert_id"]), 302)
     return Response(status=204)
 
@@ -434,7 +434,7 @@ def update_resource_complete() -> Response:
     )
     data = response.json()
     if data["status"] == 200:
-        flash(f"{data["message"]}", "message")
+        flash(f"{data['message']}", "message")
     else:
         flash("Failed to update cert", "error")
     return redirect(url_for('data.cert_data', cert_id=cert_id), 302)
@@ -522,7 +522,7 @@ def create_section() -> None:
         )
         data = response.json()
         if data["status"] == 200:
-            flash(f"{data["message"]}", "message")
+            flash(f"{data['message']}", "message")
         else:
             flash("Crate section failed", "message")
         return redirect(url_for('data.cert_data', cert_id=cert_id), 302)
@@ -582,7 +582,7 @@ def delete(resource_id: int) -> Response:
     else:
         response = Resource.delete(resource_id)
     flash(
-        f"{response["message"]}",
+        f"{response['message']}",
         "message" if response["status"] == 200 else "error"
     )
     if resource_type == "cert":

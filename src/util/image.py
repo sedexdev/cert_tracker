@@ -12,7 +12,7 @@ import requests
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
 
-API_URL = f"http://127.0.0.1:5000/api/v{os.environ["API_VERSION"]}"
+API_URL = f"http://127.0.0.1:5000/api/v{os.environ['API_VERSION']}"
 
 PROJECT_ROOT = os.path.abspath(
     os.path.join(

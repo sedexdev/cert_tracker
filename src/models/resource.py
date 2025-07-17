@@ -11,7 +11,7 @@ import requests
 from src.db import db
 from src.models.section import Section
 
-API_URL = f"http://127.0.0.1:5000/api/v{os.environ["API_VERSION"]}"
+API_URL = f"http://127.0.0.1:5000/api/v{os.environ['API_VERSION']}"
 
 
 @dataclass

@@ -17,7 +17,7 @@ cert_bp = Blueprint(
     template_folder="templates"
 )
 
-API_URL = f"http://127.0.0.1:5000/api/v{os.environ["API_VERSION"]}"
+API_URL = f"http://127.0.0.1:5000/api/v{os.environ['API_VERSION']}"
 
 
 @cert_bp.route("/certs")

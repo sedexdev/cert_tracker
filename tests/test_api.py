@@ -27,7 +27,7 @@ class TestAPI:
         """
         Setup class before all tests run
         """
-        cls.api_url = f"http://127.0.0.1:5000/api/v{os.environ["API_VERSION"]}"
+        cls.api_url = f"http://127.0.0.1:5000/api/v{os.environ['API_VERSION']}"
         cls.cert_data_1 = None
         cls.cert_data_2 = None
         cls.resource_data_1 = None
@@ -134,7 +134,7 @@ class TestAPI:
         with app.app_context():
             cert = Cert.query.filter_by(id=1).first()
         assert \
-            data["message"] == "Cert created successfully" and \
+            data['message'] == "Cert created successfully" and \
             data["status"] == 200 and \
             cert.name == "Test"
 
@@ -156,7 +156,7 @@ class TestAPI:
         with app.app_context():
             resource = Resource.query.filter_by(id=1).first()
         assert \
-            data["message"] == "Resource created successfully" and \
+            data['message'] == "Resource created successfully" and \
             data["status"] == 200 and \
             resource.title == "Test course"
 
@@ -178,7 +178,7 @@ class TestAPI:
         with app.app_context():
             section = Section.query.filter_by(id=1).first()
         assert \
-            data["message"] == "Section created successfully" and \
+            data['message'] == "Section created successfully" and \
             data["status"] == 200 and \
             section.title == "Test section"
 

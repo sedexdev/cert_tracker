@@ -19,7 +19,7 @@ data_bp = Blueprint(
     url_prefix="/certs/data"
 )
 
-API_URL = f"http://127.0.0.1:5000/api/v{os.environ["API_VERSION"]}"
+API_URL = f"http://127.0.0.1:5000/api/v{os.environ['API_VERSION']}"
 
 
 def get_cert_resources(cert: Cert, resource_type: str) -> dict:
@@ -131,7 +131,7 @@ def fetch_cert(cert: Cert, tags: list, forms: tuple, og_data=None) -> str:
             "articles": [r for r in importable_resources if r["resource_type"] == "article"],
             "documents": [r for r in importable_resources if r["resource_type"] == "documentation"],
         },
-        title=f"CT: {cert["name"]}",
+        title=f"CT: {cert['name']}",
         og_data=og_result,
         has_og_data=og_data_sent,
     )

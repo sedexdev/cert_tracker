@@ -16,7 +16,7 @@ from src.models.section import Section
 api_bp = Blueprint(
     name="api",
     import_name=__name__,
-    url_prefix=f"/api/v{os.getenv("API_VERSION")}"
+    url_prefix=f"/api/v{os.getenv('API_VERSION')}"
 )
 
 

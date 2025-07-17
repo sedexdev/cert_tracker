@@ -14,7 +14,7 @@ from src.models.section import Section
 
 from src.util.image import remove_images
 
-API_URL = f"http://127.0.0.1:5000/api/v{os.environ["API_VERSION"]}"
+API_URL = f"http://127.0.0.1:5000/api/v{os.environ['API_VERSION']}"
 
 
 @dataclass

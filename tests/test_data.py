@@ -9,7 +9,7 @@ import requests
 
 from src.data.views import get_cert_resources, get_importable_resources
 
-API_URL = f"http://127.0.0.1:5000/api/v{os.environ["API_VERSION"]}"
+API_URL = f"http://127.0.0.1:5000/api/v{os.environ['API_VERSION']}"
 
 
 class TestData:

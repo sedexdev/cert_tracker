@@ -9,7 +9,7 @@ import requests
 
 from flask.testing import FlaskClient
 
-API_URL = f"http://127.0.0.1:5000/api/v{os.environ["API_VERSION"]}"
+API_URL = f"http://127.0.0.1:5000/api/v{os.environ['API_VERSION']}"
 
 
 class TestRoutes:
