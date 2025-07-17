@@ -69,14 +69,13 @@ Update the 2 .txt files under `cert_tracker/secrets` for the PostgreSQL database
 
 ## 🛠️ Usage
 
-Run the following commands in the project root - `cert_tracker/`
+- Run the following commands in the project root - `cert_tracker/`
+- The application will run on `http://127.0.0.1:8181`
 
 ### Running app containers
 
 - `sudo docker compose up -d` - Mac/Linux
 - `docker compose up -d` - Windows (from admin prompt)
-
-In your browser navigate to http://127.0.0.1:8181 to view the application once built.
 
 ### Stopping app containers
 
