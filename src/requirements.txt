@@ -37,5 +37,5 @@ tomli==2.2.1
 tomlkit==0.13.2
 typing_extensions==4.12.2
 urllib3==2.5.0
-Werkzeug==3.0.6
+Werkzeug==3.1.4
 WTForms==3.1.2
